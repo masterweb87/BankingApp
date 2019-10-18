@@ -1,0 +1,18 @@
+.bank_content {
+	clear: both;
+	border: 2px solid #ccc;
+	padding: 10px;
+}
+
+.menu_actions {
+	float: left;
+}
+
+.menu_logout {
+	float: right;
+}
+
+ #transactionsList td {
+ 	padding: 5px;
+ 	border-bottom: 1px solid #ccc;
+ }

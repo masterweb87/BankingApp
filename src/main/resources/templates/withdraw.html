@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>Banking App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Banking UI</h1>
+		<div class="menu_actions"><a href="/withdraw">Refresh</a> | <a href="/accounts">Account info</a> | <a href="/deposit">Deposit</a></div>
+		<div class="menu_logout"><a href="/logout">Logout</a></div>
+		<p>
+		<div class="bank_content">
+			<h3>Withdrawal form</h3>
+			<hr>
+			<p>Balance: $<b th:text="${balance}"></b></p>
+			<hr>
+			<form action="#" th:action="@{/withdraw}" th:object="${withdrawForm}" method="post">
+				<p><label>Amount to withdraw: $</label>
+				<input type="text" name="amount" th:field="*{amount}">
+				<p><label>Description: </label>
+				<input type="text" name="description" th:field="*{description}">
+				<p><input type="submit" value="Confirm the withdraw">
+			</form>
+			<p>
+		</div>
+	</div>
+</body>
+</html>

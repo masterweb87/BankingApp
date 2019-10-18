@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<title>Banking App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Banking UI</h1>
+		<div class="menu_actions"><a href="/accounts">Refresh</a> | <a href="/withdraw">Withdraw</a> | <a href="/deposit">Deposit</a></div>
+		<div class="menu_logout"><a href="/logout">Logout</a></div>
+		<p>
+		<div class="bank_content">
+			<h3>Account holder: <b th:text="${userName}"></b></h3>
+			<hr>
+			<p>Balance: $<b th:text="${balance}"></b></p>
+			
+			<div th:if="${success != null}">
+			   <div class="alert alert-success" role="alert" th:text="${success}"></div>
+			</div>
+			<div th:if="${no_withdraw != null}">
+			   <div class="alert alert-warning" role="alert" th:text="${no_withdraw}"></div>
+			</div>
+			<div th:if="${no_deposit != null}">
+			   <div class="alert alert-warning" role="alert" th:text="${no_deposit}"></div>
+			</div>
+			
+			<hr>
+			<table id="transactionsList">
+			    <thead>
+			        <tr>
+			            <th>Date</th>
+			            <th>Type</th>
+			            <th>Description</th>
+			            <th>Amount</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:each="transaction : ${listTransactions}">
+			            <td th:text="${transaction.date}"></td>
+			            <td th:text="${transaction.type}"></td>
+			            <td th:text="${transaction.description}"></td>
+			            <td th:text="${transaction.amount}"></td>
+			        </tr>
+			    </tbody>
+			</table>
+			<p>
+		</div>
+	</div>
+</body>
+</html>
