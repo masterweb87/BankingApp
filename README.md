@@ -20,5 +20,5 @@ In the banking app the user can:
 * Deposit
 
 REST Access
-* GET http://localhost:8080/accounts/{id}
-* POST http://localhost:8080/accounts
+* GET http://localhost:8080/api/accounts/{id}
+* POST http://localhost:8080/api/accounts

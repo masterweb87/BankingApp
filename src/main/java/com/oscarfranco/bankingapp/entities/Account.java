@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Account {
 	
@@ -21,6 +23,7 @@ public class Account {
 	
 	private int balance;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="account")
 	private List<Transaction> lastTransactions;
 	

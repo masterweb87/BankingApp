@@ -24,14 +24,14 @@ public class AccountRestController {
 	@Autowired
 	private AccountRepository accounts;
 	
-	@GetMapping("/accounts/{id}")
+	@GetMapping("/api/accounts/{id}")
 	public EntityModel<Account> retrieveAccount(@PathVariable long id) {
 		Optional<Account> account = accounts.findById(id);
 		EntityModel<Account> resource = new EntityModel<>(account.get());
 		return resource;
 	}
 	
-	@PostMapping("/accounts")
+	@PostMapping("/api/accounts")
 	public ResponseEntity<Object> updateAccount(@Valid @RequestBody Account account) {
 		Optional<Account> accountUpdateOpt = accounts.findById(account.getId());
 		EntityModel<Account> resource = new EntityModel<>(accountUpdateOpt.get());
